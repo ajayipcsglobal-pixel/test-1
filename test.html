@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><style>/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #E67E22; /* Burnt Orange/Terracotta - Warm & Street Vibe */
+    --secondary-color: #2C3E50; /* Dark Navy/Charcoal - Modern & Clean */
+    --text-light: #F4F4F4;
+    --background-light: #F9F9F9;
+    --font-stack: 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+.btn-nav {
+    background-color: var(--primary-color);
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+/* --- Global Section & Heading Styles --- */
+section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+/* --- Global Button Styles --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #D35400; /* Darker primary */
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+/* --- 1. Hero Section --- */
+.hero-section {
+    background-color: var(--secondary-color);
+    color: white;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* You would use a dark background image here */
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* --- 2. About Section --- */
+.about-section {
+    background-color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.image-placeholder {
+    height: 350px;
+    background-color: var(--background-light);
+    border: 5px solid var(--primary-color);
+}
+
+/* --- 3. Gallery Section --- */
+.gallery-section {
+    background-color: var(--background-light);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    height: 250px;
+    background-color: var(--secondary-color); /* Placeholder dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.img-content {
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* --- 4. Menu Highlight Section --- */
+.menu-highlight {
+    background-color: white;
+    padding: 60px 5%;
+}
+
+.menu-highlight p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    font-size: 1.1em;
+}
+
+/* --- 5. Reservation Section --- */
+.reserve-section {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+#waitlist-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#waitlist-form input {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+#waitlist-form button {
+    margin-top: 10px;
+}
+
+#form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--secondary-color);
+    color: #999;
+    padding: 20px 5%;
+    font-size: 0.9em;
+    border-top: 3px solid var(--primary-color);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .image-placeholder {
+        order: -1; /* Puts the image above the text on mobile */
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 50px; /* Below the navbar */
+        left: 0;
+        background-color: white;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li a {
+        padding: 15px 5%;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taste Trail - New Culinary Journey</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Taste Trail</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reserve" class="btn-nav">Book Now</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <h1>Where Every Dish is a Discovery.</h1>
+            <p>Modern cuisine, fresh ingredients, unforgettable experience. Launching soon!</p>
+            <a href="#reserve" class="btn btn-primary">Join the Waitlist & Reserve</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>Our Story & Vision</h2>
+        <div class="about-grid">
+            <div class="text-content">
+                <p>Taste Trail is the passion project of Chef Anya Sharma, dedicated to bringing **globally-inspired street food** indoors. We focus on bold, authentic flavors using only local, sustainable produce.</p>
+                <p>We believe great food shouldn't be complicated—just crafted with care. Our space is designed to be vibrant, welcoming, and perfect for sharing a meal.</p>
+            </div>
+            <div class="image-placeholder"></div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Our Culinary Portfolio</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="img-content">Signature Tacos</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-content">Artisanal Cocktails</div>
+            </div>
+            <div class="gallery-item">
+                <div class="img-content">Interior Vibe</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="menu" class="menu-highlight">
+        <h2>Featured Menu Item: The Trail Blazer</h2>
+        <p>A slow-braised pork belly sandwich with house-made kimchi slaw and sriracha aioli on a toasted brioche bun. Pure perfection.</p>
+        <a href="menu.pdf" target="_blank" class="btn btn-secondary">Download Full Menu (PDF)</a>
+    </section>
+
+    <section id="reserve" class="reserve-section">
+        <h2>First Access: Book Your Preview Seat!</h2>
+        <form id="waitlist-form">
+            <input type="text" id="res-name" placeholder="Your Name" required>
+            <input type="email" id="res-email" placeholder="Your Email" required>
+            <input type="number" id="res-guests" placeholder="Number of Guests (1-6)" min="1" max="6" required>
+            <button type="submit" class="btn btn-primary">Join Waitlist</button>
+            <p id="form-message" class="hidden"></p>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Taste Trail. | Coming to Downtown Arts District.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
